@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="20dp"
+    tools:context=".LoginActivity">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="GİRİŞ YAP"
+        android:gravity="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textSize="30sp"
+         />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="150dp"
+        android:layout_centerHorizontal="true">
+
+
+        <EditText
+            android:id="@+id/editText_email_giris"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Email"
+            android:inputType="textEmailAddress" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayout_password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textInputLayout2"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        app:passwordToggleEnabled="true">
+
+
+        <EditText
+            android:id="@+id/editText_giris_sifre"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Şifre"
+            android:inputType="textPassword" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/girisyap_butonu"
+        android:layout_width="150dp"
+        android:layout_height="40dp"
+        android:layout_below="@+id/textInputLayout_password"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/buton_yuvarlak"
+        android:padding="10dp"
+        android:text="Giriş Yap"
+        android:textColor="#ffff" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/sifre_unutma"
+        android:layout_marginTop="30dp"
+        android:orientation="horizontal">
+
+        <com.facebook.login.widget.LoginButton
+
+            android:id="@+id/login_button"
+            android:layout_marginTop="4dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+        </com.facebook.login.widget.LoginButton>
+
+        <com.google.android.gms.common.SignInButton
+            android:id="@+id/google_sign_butonu"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:layout_weight="1">
+        </com.google.android.gms.common.SignInButton>
+
+    </LinearLayout>
+
+
+
+    <TextView
+        android:id="@+id/sifre_unutma"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="yeni_sifre_olusturma"
+        android:text="Şifreni mi Unuttun? Yeni Şifre Oluştur"
+        android:layout_below="@+id/girisyap_butonu"
+        android:layout_marginTop="20dp"
+        android:gravity="center"/>
+
+
+    <TextView
+        android:id="@+id/rise_git_textview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="kaydola_git"
+        android:text="Hesabınız yok mu ? Yeni Hesap Oluştur"
+        android:layout_marginBottom="30dp"
+        android:gravity="center"
+        android:layout_alignParentBottom="true"
+        />
+</RelativeLayout>

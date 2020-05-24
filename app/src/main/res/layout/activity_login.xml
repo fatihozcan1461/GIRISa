@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="20dp"
-    tools:context=".LoginActivity">
+    android:background="@drawable/loginbackground"
+    tools:context=".LoginandRegister.LoginActivity">
 
     <TextView
         android:id="@+id/textView"
@@ -14,8 +15,18 @@
         android:text="GİRİŞ YAP"
         android:gravity="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        android:textSize="30sp"
-         />
+        android:textSize="30sp" />
+
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:layout_below="@+id/textView"
+        android:layout_marginBottom="14dp"
+        android:src="@drawable/logo" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputLayout2"

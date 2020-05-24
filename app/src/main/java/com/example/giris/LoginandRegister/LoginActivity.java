@@ -1,4 +1,4 @@
-package com.example.giris;
+package com.example.giris.LoginandRegister;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
@@ -10,7 +10,6 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.InputType;
-import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
@@ -19,6 +18,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.giris.DashboardActivity;
+import com.example.giris.R;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
@@ -28,16 +29,11 @@ import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
-import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-
-import java.util.HashMap;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -82,7 +78,7 @@ public class LoginActivity extends AppCompatActivity {
         mGoogleSignInButton.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                progressDialog.show();
                 Intent signInIntent = mGoogleSignInClient.getSignInIntent();
                 startActivityForResult(signInIntent, RC_SIGN_IN);
 
@@ -117,7 +113,7 @@ public class LoginActivity extends AppCompatActivity {
 
     public void kaydola_git(View view)
     {
-        startActivity( new Intent( LoginActivity.this,RegisterActivity.class ) );
+        startActivity( new Intent( LoginActivity.this, RegisterActivity.class ) );
         finish();
     }
 
@@ -128,7 +124,7 @@ public class LoginActivity extends AppCompatActivity {
         return super.onSupportNavigateUp();
     }
 
-    public void GirisYapButonu(View view)
+   /* public void GirisYapButonu(View view)
     {
         String email = mEmail.getText().toString();
         String sifre = mSifre.getText().toString().trim();
@@ -149,7 +145,7 @@ public class LoginActivity extends AppCompatActivity {
         }
 
 
-    }
+    }*/
 
     private void loginUser(String eemail, String sifre) {
         progressDialog = new ProgressDialog( this );
@@ -165,7 +161,7 @@ public class LoginActivity extends AppCompatActivity {
                             FirebaseUser user = mAuth.getCurrentUser();
                             Toast.makeText(LoginActivity.this, "Giriş Başarılı"+user.getEmail() ,
                                     Toast.LENGTH_SHORT).show();
-                            startActivity( new Intent(LoginActivity.this,ProfileActivity.class) );
+                            startActivity( new Intent(LoginActivity.this, DashboardActivity.class) );
                             finish();
                         }
                         else {
@@ -298,7 +294,7 @@ public class LoginActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-                            progressDialog.show();
+                           // progressDialog.show();
                            /* try {
                                 // Sign in success, update UI with the signed-in user's information
                                 FirebaseUser user = mAuth.getCurrentUser();
@@ -325,7 +321,7 @@ public class LoginActivity extends AppCompatActivity {
                                 Toast.makeText( LoginActivity.this,"Giriş başarılı /n"+user.getEmail(),
                                         Toast.LENGTH_SHORT).show();
                                 //go to profil activity after logged in
-                                startActivity( new Intent(LoginActivity.this,ProfileActivity.class) );
+                                startActivity( new Intent(LoginActivity.this,DashboardActivity.class) );
                                 finish();
 
                             }*/
@@ -336,7 +332,7 @@ public class LoginActivity extends AppCompatActivity {
                                         Toast.LENGTH_SHORT).show();
                             }*/
                             /*finally {
-                                startActivity( new Intent( getApplicationContext(),ProfileActivity.class ) );
+                                startActivity( new Intent( getApplicationContext(),DashboardActivity.class ) );
                                 finish();
                             }*/
                             // Sign in success, update UI with the signed-in user's information
@@ -345,11 +341,12 @@ public class LoginActivity extends AppCompatActivity {
 
 
                             //show email account in Toast
-                            Toast.makeText( LoginActivity.this,"Giriş başarılı /n"+user.getEmail(),
+                            Toast.makeText( LoginActivity.this,"Giriş başarılı : "+user.getEmail(),
                                     Toast.LENGTH_SHORT).show();
                             //go to profil activity after logged in
-                            startActivity( new Intent(LoginActivity.this,ProfileActivity.class) );
+                            startActivity( new Intent(LoginActivity.this, DashboardActivity.class) );
                             finish();
+                            progressDialog.dismiss();
                            // updateUI(user);
                         }
                         else {

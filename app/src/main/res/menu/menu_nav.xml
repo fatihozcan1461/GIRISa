@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/nav_zaman_ayarlama"
+        android:title="Uyarılar"
+        android:icon="@drawable/ic_devices_other_black_24dp"/>
+
+
+    <item
+        android:id="@+id/nav_bluetooth_bağlanti"
+        android:title="Saat"
+        android:icon="@drawable/ic_watch_black_24dp"/>
+
+    <item
+        android:id="@+id/nav_ev"
+        android:title="Anasayfa"
+        android:icon="@drawable/ic_home_black_24dp"/>
+
+
+    <item
+        android:id="@+id/nav_duyma"
+        android:title="TTS"
+        android:icon="@drawable/ic_hearing_black_24dp"/>
+    <item
+        android:id="@+id/nav_olay"
+        android:title="Durum"
+        android:icon="@drawable/ic_event_available_black_24dp"/>
+
+</menu>

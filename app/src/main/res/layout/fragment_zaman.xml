@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragmentler.ZamanFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <ListView
+        android:id="@+id/listView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="16dp">
+
+    </ListView>
+
+    <TextView
+        android:id="@+id/text_dinleme"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/listView"
+        android:padding="8dp"
+        android:text="Dinleniyor..."
+        android:layout_gravity="center_horizontal"
+        android:layout_marginLeft="110dp"
+        android:layout_marginBottom="80dp"
+        android:textColor="@color/colorPrimary"
+        android:textAlignment="center"
+        android:background="@color/cardview_dark_background"
+        android:textSize="30sp" />
+
+</FrameLayout>

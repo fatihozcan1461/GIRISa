@@ -1,5 +1,10 @@
 apply plugin: 'com.android.application'
 apply plugin: 'com.google.gms.google-services'
+apply plugin: 'com.google.protobuf'
+
+ext {
+    grpcVersion = '1.23.0'
+        }
 
 android {
     compileSdkVersion 29
@@ -11,11 +16,18 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        multiDexEnabled true
+        packagingOptions{
+            exclude 'META-INF/INDEX.LIST'
+        }
     }
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        configurations.all{
+            resolutionStrategy.force 'com.google.code.findbugs:jsr305:3.0.2'
         }
     }
 }
@@ -28,6 +40,7 @@ dependencies {
     implementation 'com.google.firebase:firebase-auth:19.3.0'
     implementation 'com.google.firebase:firebase-core:16.+'
     implementation 'com.google.firebase:firebase-database:16.0.4'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
@@ -37,8 +50,19 @@ dependencies {
     implementation 'com.google.android.gms:play-services-auth:18.0.0'
     //facebook sign in library
     implementation 'com.facebook.android:facebook-login:[5,6)'
+    //Google Cloud Speech To Text Library
+    implementation 'com.jakewharton:butterknife:8.8.0'
+    implementation "io.grpc:grpc-okhttp:$grpcVersion"
+    implementation "io.grpc:grpc-stub:$grpcVersion"
+    implementation 'com.google.api.grpc:grpc-google-cloud-speech-v1:1.20.0'
+    implementation('com.google.auth:google-auth-library-oauth2-http:0.7.0')
+            {
+                exclude module:'httpclient'
+            }
+    implementation 'com.google.errorprone:error_prone_annotations:2.3.2'
+    implementation "io.perfmark:perfmark-api:0.19.0"
+
 
 
 }
 apply plugin: 'com.google.gms.google-services'
-

@@ -1,4 +1,4 @@
-package com.example.giris;
+package com.example.giris.LoginandRegister;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+
+import com.example.giris.R;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -22,12 +24,12 @@ public class MainActivity extends AppCompatActivity {
 
     public void kaydolma(View view)
     {
-        Intent kaydetintenti = new Intent(MainActivity.this,RegisterActivity.class);
+        Intent kaydetintenti = new Intent(MainActivity.this, RegisterActivity.class);
         startActivity( kaydetintenti );
     }
 
     public void girise_gecc(View view) {
-        Intent kaydetintenti = new Intent(MainActivity.this,LoginActivity.class);
+        Intent kaydetintenti = new Intent(MainActivity.this, LoginActivity.class);
         startActivity( kaydetintenti );
     }
 }
